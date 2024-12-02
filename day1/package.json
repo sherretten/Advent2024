@@ -1,0 +1,15 @@
+{
+  "name": "2024",
+  "version": "1.0.0",
+  "description": "advent of code 2024",
+  "main": "day1.ts",
+  "scripts": {
+    "build": "tsc",
+    "run": "node day1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.1"
+  }
+}
