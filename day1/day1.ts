@@ -36,10 +36,28 @@ function calculateDistance(leftList: number[], rightList: number[]) {
   return totalDifference;
 }
 
+function calculateSimilarity(leftList: number[], rightList: number[]) {
+  let score = 0;
+
+  leftList.forEach((left) => {
+    let leftInRight = 0;
+    rightList.forEach((right) => {
+      if (right === left) {
+        leftInRight++;
+      }
+    });
+    score += left * leftInRight;
+  });
+  return score;
+}
+
 function main() {
   const [left, right] = retrieveBothLists();
   const distance = calculateDistance(left, right);
-  console.debug(distance);
+  console.debug("distance: ", distance);
+
+  const similarityScore = calculateSimilarity(left, right);
+  console.debug("similarity: ", similarityScore);
 }
 
 main();
