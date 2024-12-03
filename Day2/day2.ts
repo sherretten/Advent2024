@@ -13,6 +13,7 @@ function main() {
   reports.split("\n").forEach((report) => {
     let row = report.split(" ").map((i) => +i);
     let increasing = row[1] > row[0];
+    let numberOfErrors = 0;
     for (let index = 0; index < row.length; index++) {
       let indexDifference = row[index] - row[index + 1];
       if (Math.abs(indexDifference) > 3) {
@@ -22,10 +23,10 @@ function main() {
         (increasing && indexDifference >= 0) ||
         (!increasing && indexDifference <= 0)
       ) {
-        return;
+        numberOfErrors++;
       }
 
-      if (index === row.length - 1) {
+      if (index === row.length - 1 && numberOfErrors <= 1) {
         safeReports++;
       }
     }
